@@ -1,6 +1,5 @@
 // Imports
 import ow from "ow";
-import { URL } from "url";
 
 // Interfaces
 import { Filters, Search, SearchTypes } from "./interfaces/search/Search";
