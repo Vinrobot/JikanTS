@@ -11,7 +11,7 @@ const info = async (id: number) => {
   try {
     ow(id, ow.number.positive);
 
-    const { body } = await queue.add(async () => await api(`/club/${id}`, {}));
+    const { body } = await queue.add(async () => await api(`/club/${id}`));
 
     return body as Info;
   } catch (error) {
@@ -25,7 +25,7 @@ const members = async (id: number, page: number = 1) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/club/${id}/members/${page}`, {})
+      async () => await api(`/club/${id}/members/${page}`)
     );
 
     return body as Members;

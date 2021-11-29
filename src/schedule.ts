@@ -9,9 +9,7 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (day: Days = "monday") => {
   try {
-    const { body } = await queue.add(
-      async () => await api(`/schedule/${day}`, {})
-    );
+    const { body } = await queue.add(async () => await api(`/schedule/${day}`));
 
     return body as Schedule;
   } catch (error) {

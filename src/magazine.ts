@@ -18,7 +18,7 @@ const get = async (id: number, page: number = 1) => {
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/magazine/${id}/${page}`, {})
+      async () => await api(`/magazine/${id}/${page}`)
     );
 
     return body as Magazine;

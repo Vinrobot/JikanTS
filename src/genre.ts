@@ -19,7 +19,7 @@ const anime = async (genreId: number, page: number = 1) => {
     ow(genreId, ow.number.greaterThanOrEqual(1));
 
     const { body } = await queue.add(
-      async () => await api(`/genre/anime/${genreId}/${page}`, {})
+      async () => await api(`/genre/anime/${genreId}/${page}`)
     );
 
     return body as Anime;
@@ -40,7 +40,7 @@ const manga = async (genreId: number, page: number = 1) => {
     ow(genreId, ow.number.greaterThanOrEqual(1));
 
     const { body } = await queue.add(
-      async () => await api(`/genre/manga/${genreId}/${page}`, {})
+      async () => await api(`/genre/manga/${genreId}/${page}`)
     );
 
     return body as Manga;

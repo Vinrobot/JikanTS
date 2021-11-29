@@ -21,7 +21,7 @@ const characters = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/characters`, {})
+      async () => await api(`/manga/${id}/characters`)
     );
 
     return body as Characters;
@@ -40,7 +40,7 @@ const forum = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/forum`, {})
+      async () => await api(`/manga/${id}/forum`)
     );
 
     return body;
@@ -59,7 +59,7 @@ const moreInfo = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/moreinfo`, {})
+      async () => await api(`/manga/${id}/moreinfo`)
     );
 
     return body;
@@ -78,7 +78,7 @@ const news = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/news`, {})
+      async () => await api(`/manga/${id}/news`)
     );
 
     return body as News;
@@ -97,7 +97,7 @@ const pictures = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/pictures`, {})
+      async () => await api(`/manga/${id}/pictures`)
     );
 
     return body;
@@ -116,7 +116,7 @@ const recommendations = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/recommendations`, {})
+      async () => await api(`/manga/${id}/recommendations`)
     );
 
     return body;
@@ -137,7 +137,7 @@ const reviews = async (id: number, page: number = 1) => {
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/reviews/${page}`, {})
+      async () => await api(`/manga/${id}/reviews/${page}`)
     );
 
     return body as Reviews;
@@ -156,7 +156,7 @@ const stats = async (id: number) => {
     ow(id, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/stats`, {})
+      async () => await api(`/manga/${id}/stats`)
     );
 
     return body as Stats;
@@ -177,7 +177,7 @@ const userUpdates = async (id: number, page: number = 1) => {
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/manga/${id}/userupdates/${page}`, {})
+      async () => await api(`/manga/${id}/userupdates/${page}`)
     );
 
     return body as UserUpdates;

@@ -27,7 +27,7 @@ const animeList = async (
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/user/${username}/animelist/${type}/${page}`, {})
+      async () => await api(`/user/${username}/animelist/${type}/${page}`)
     );
 
     return body as AnimeList;
@@ -47,7 +47,7 @@ const friends = async (username: string, page: number = 1) => {
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/user/${username}/friends/${page}`, {})
+      async () => await api(`/user/${username}/friends/${page}`)
     );
 
     return body as Friends;
@@ -66,7 +66,7 @@ const history = async (username: string, type: Types = "both") => {
   try {
     if (type === "anime") {
       const anime = await queue.add(
-        async () => await api(`/user/${username}/history/anime`, {})
+        async () => await api(`/user/${username}/history/anime`)
       );
 
       return anime.body as History;
@@ -74,7 +74,7 @@ const history = async (username: string, type: Types = "both") => {
 
     if (type === "both") {
       const both = await queue.add(
-        async () => await api(`/user/${username}/history`, {})
+        async () => await api(`/user/${username}/history`)
       );
 
       return both.body as History;
@@ -82,7 +82,7 @@ const history = async (username: string, type: Types = "both") => {
 
     if (type === "manga") {
       const manga = await queue.add(
-        async () => await api(`/user/${username}/history/manga`, {})
+        async () => await api(`/user/${username}/history/manga`)
       );
 
       return manga.body as History;
@@ -108,7 +108,7 @@ const mangaList = async (
     ow(page, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/user/${username}/mangalist/${type}/${page}`, {})
+      async () => await api(`/user/${username}/mangalist/${type}/${page}`)
     );
 
     return body as MangaList;
@@ -125,7 +125,7 @@ const mangaList = async (
 const profile = async (username: string) => {
   try {
     const { body } = await queue.add(
-      async () => await api(`/user/${username}`, {})
+      async () => await api(`/user/${username}`)
     );
 
     return body as Profile;

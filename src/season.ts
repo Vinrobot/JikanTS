@@ -20,7 +20,7 @@ const anime = async (year: number, season: Seasons) => {
     ow(year, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/season/${year}/${season}`, {})
+      async () => await api(`/season/${year}/${season}`)
     );
 
     return body as Season;
@@ -34,9 +34,7 @@ const anime = async (year: number, season: Seasons) => {
  */
 const archive = async () => {
   try {
-    const { body } = await queue.add(
-      async () => await api("/season/archive", {})
-    );
+    const { body } = await queue.add(async () => await api("/season/archive"));
 
     return body as SeasonArchive;
   } catch (error) {
@@ -49,9 +47,7 @@ const archive = async () => {
  */
 const later = async () => {
   try {
-    const { body } = await queue.add(
-      async () => await api("/season/later", {})
-    );
+    const { body } = await queue.add(async () => await api("/season/later"));
 
     return body as SeasonLater;
   } catch (error) {

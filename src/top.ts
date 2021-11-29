@@ -24,14 +24,14 @@ const items = async (
 
     if (subType) {
       const result = await queue.add(
-        async () => await api(`/top/${type}/${page}/${subType}`, {})
+        async () => await api(`/top/${type}/${page}/${subType}`)
       );
 
       return result.body as Result;
     }
 
     const { body } = await queue.add(
-      async () => await api(`/top/${type}/${page}`, {})
+      async () => await api(`/top/${type}/${page}`)
     );
 
     return body as Result;

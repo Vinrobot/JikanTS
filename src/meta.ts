@@ -23,7 +23,7 @@ const requests = async (
     ow(offset, ow.number.positive);
 
     const { body } = await queue.add(
-      async () => await api(`/meta/requests/${type}/${period}/${offset}`, {})
+      async () => await api(`/meta/requests/${type}/${period}/${offset}`)
     );
 
     return body;
@@ -37,7 +37,7 @@ const requests = async (
  */
 const status = async () => {
   try {
-    const { body } = await queue.add(async () => await api("/meta/status", {}));
+    const { body } = await queue.add(async () => await api("/meta/status"));
 
     return body as Status;
   } catch (error) {

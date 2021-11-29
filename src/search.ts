@@ -56,7 +56,7 @@ const search = async (
     }
 
     const { body } = await queue.add(
-      async () => await api(`${url.pathname}${url.search}`, {})
+      async () => await api(`${url.pathname}${url.search}`)
     );
 
     return body as Search;
