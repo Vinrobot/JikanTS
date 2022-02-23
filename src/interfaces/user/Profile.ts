@@ -32,7 +32,7 @@ interface AnimeStats {
 interface Favorites {
   readonly anime: Anime[];
   readonly characters: Anime[];
-  readonly manga: any[];
+  readonly manga: unknown[];
   readonly people: Anime[];
 }
 

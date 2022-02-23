@@ -34,7 +34,7 @@ interface Anime {
   readonly start_date: Date;
   readonly storage: null;
   readonly studios: Licensor[];
-  readonly tags: any | null;
+  readonly tags: unknown | null;
   readonly title: string;
   readonly total_episodes: number;
   readonly type: Type;

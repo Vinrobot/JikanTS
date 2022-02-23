@@ -20,7 +20,7 @@ interface Manga {
   readonly end_date: Date | null;
   readonly image_url: string;
   readonly is_rereading: boolean;
-  readonly magazines: any[];
+  readonly magazines: unknown[];
   readonly mal_id: number;
   readonly priority: Priority;
   readonly publishing_status: number;
@@ -32,7 +32,7 @@ interface Manga {
   readonly retail: null;
   readonly score: number;
   readonly start_date: Date | null;
-  readonly tags: null | any;
+  readonly tags: null | unknown;
   readonly title: string;
   readonly total_chapters: number;
   readonly total_volumes: number;

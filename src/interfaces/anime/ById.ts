@@ -30,7 +30,7 @@ export interface AnimeById {
   readonly synopsis: string;
   readonly title_english: string;
   readonly title_japanese: string;
-  readonly title_synonyms: any[];
+  readonly title_synonyms: string[];
   readonly title: string;
   readonly trailer_url: string;
   readonly type: string;

@@ -22,7 +22,7 @@ interface Day {
   readonly genres: Genre[];
   readonly image_url: string;
   readonly kids: boolean;
-  readonly licensors: any[];
+  readonly licensors: unknown[];
   readonly mal_id: number;
   readonly members: number;
   readonly producers: Genre[];
