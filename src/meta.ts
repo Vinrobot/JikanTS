@@ -2,7 +2,7 @@
 import { Periods, Status, Types } from "./interfaces/meta/Meta";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Requests related to meta information regarding the Jikan REST Instance
@@ -16,26 +16,18 @@ const requests = async (
   period: Periods = "monthly",
   offset: number = 1000
 ) => {
-  try {
-    const result = await api(`/meta/requests/${type}/${period}/${offset}`);
+  const result = await api(`/meta/requests/${type}/${period}/${offset}`);
 
-    return result;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result;
 };
 
 /**
  * Fetches the status of the Jikan REST API
  */
 const status = async () => {
-  try {
-    const result = await api("/meta/status");
+  const result = await api("/meta/status");
 
-    return result as Status;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Status;
 };
 
 export default {

@@ -2,7 +2,7 @@
 import { Result, SubTypes, Types } from "./interfaces/top/Top";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches top items on MyAnimeList
@@ -16,18 +16,14 @@ const items = async (
   page: number = 1,
   subType?: SubTypes
 ) => {
-  try {
-    let url = `/top/${type}/${page}`;
-    if (subType) {
-      url += `/${subType}`;
-    }
-
-    const result = await api(url);
-
-    return result as Result;
-  } catch (error) {
-    Logger.error(error);
+  let url = `/top/${type}/${page}`;
+  if (subType) {
+    url += `/${subType}`;
   }
+
+  const result = await api(url);
+
+  return result as Result;
 };
 
 export default {

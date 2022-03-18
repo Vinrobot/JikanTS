@@ -1,5 +1,5 @@
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches pictures related to the item
@@ -7,13 +7,9 @@ import { api, Logger } from "./utils";
  * @param id - The person id
  */
 const pictures = async (id: number) => {
-  try {
-    const result = await api(`/person/${id}/pictures`);
+  const result = await api(`/person/${id}/pictures`);
 
-    return result;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result;
 };
 
 export default {

@@ -2,7 +2,7 @@
 import { Producer } from "./interfaces/producer/Producer";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches anime by the specified Producer/Studio/Licensor
@@ -10,13 +10,9 @@ import { api, Logger } from "./utils";
  * @param id - The producer id
  */
 const get = async (id: number, page: number = 1) => {
-  try {
-    const result = await api(`/producer/${id}/${page}`);
+  const result = await api(`/producer/${id}/${page}`);
 
-    return result as Producer;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Producer;
 };
 
 export default {

@@ -2,19 +2,15 @@
 import { Days, Schedule } from "./interfaces/schedule/Schedule";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches anime schedule of the week or specified day
  */
 const anime = async (day: Days = "monday") => {
-  try {
-    const result = await api(`/schedule/${day}`);
+  const result = await api(`/schedule/${day}`);
 
-    return result as Schedule;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Schedule;
 };
 
 export default {

@@ -6,7 +6,7 @@ import { MangaList, MangaListTypes } from "./interfaces/user/MangaList";
 import { Profile } from "./interfaces/user/Profile";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches the specified user animelist
@@ -20,13 +20,9 @@ const animeList = async (
   type: AnimeListTypes = "all",
   page: number = 1
 ) => {
-  try {
-    const result = await api(`/user/${username}/animelist/${type}/${page}`);
+  const result = await api(`/user/${username}/animelist/${type}/${page}`);
 
-    return result as AnimeList;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as AnimeList;
 };
 
 /**
@@ -36,13 +32,9 @@ const animeList = async (
  * @param page - The page number
  */
 const friends = async (username: string, page: number = 1) => {
-  try {
-    const result = await api(`/user/${username}/friends/${page}`);
+  const result = await api(`/user/${username}/friends/${page}`);
 
-    return result as Friends;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Friends;
 };
 
 /**
@@ -52,26 +44,22 @@ const friends = async (username: string, page: number = 1) => {
  * @param type - Anime, Manga or Both
  */
 const history = async (username: string, type: Types = "both") => {
-  try {
-    if (type === "anime") {
-      const anime = await api(`/user/${username}/history/anime`);
+  if (type === "anime") {
+    const anime = await api(`/user/${username}/history/anime`);
 
-      return anime as History;
-    }
+    return anime as History;
+  }
 
-    if (type === "both") {
-      const both = await api(`/user/${username}/history`);
+  if (type === "both") {
+    const both = await api(`/user/${username}/history`);
 
-      return both as History;
-    }
+    return both as History;
+  }
 
-    if (type === "manga") {
-      const manga = await api(`/user/${username}/history/manga`);
+  if (type === "manga") {
+    const manga = await api(`/user/${username}/history/manga`);
 
-      return manga as History;
-    }
-  } catch (error) {
-    Logger.error(error);
+    return manga as History;
   }
 };
 
@@ -87,13 +75,9 @@ const mangaList = async (
   type: MangaListTypes = "all",
   page: number = 1
 ) => {
-  try {
-    const result = await api(`/user/${username}/mangalist/${type}/${page}`);
+  const result = await api(`/user/${username}/mangalist/${type}/${page}`);
 
-    return result as MangaList;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as MangaList;
 };
 
 /**
@@ -102,13 +86,9 @@ const mangaList = async (
  * @param username - Username on MyAnimeList
  */
 const profile = async (username: string) => {
-  try {
-    const result = await api(`/user/${username}`);
+  const result = await api(`/user/${username}`);
 
-    return result as Profile;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Profile;
 };
 
 export default {

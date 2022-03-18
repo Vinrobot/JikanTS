@@ -2,7 +2,7 @@
 import { Filters, Search, SearchTypes } from "./interfaces/search/Search";
 
 // Utils
-import { api, baseUrl, Logger } from "./utils";
+import { api, baseUrl } from "./utils";
 
 /**
  * Search method
@@ -18,29 +18,25 @@ const search = async (
   page: number = 1,
   filters?: Filters
 ) => {
-  try {
-    const url = new URL(`/search/${type}?q=${query}&page=${page}`, baseUrl);
+  const url = new URL(`/search/${type}?q=${query}&page=${page}`, baseUrl);
 
-    if (filters) {
-      if (filters.end_date) {
-        filters.end_date = new Date(filters.end_date).toISOString();
-      }
-
-      if (filters.start_date) {
-        filters.start_date = new Date(filters.start_date).toISOString();
-      }
-
-      Object.entries(filters).forEach(([key, value]) => {
-        url.searchParams.append(key, value);
-      });
+  if (filters) {
+    if (filters.end_date) {
+      filters.end_date = new Date(filters.end_date).toISOString();
     }
 
-    const result = await api(`${url.pathname}${url.search}`);
+    if (filters.start_date) {
+      filters.start_date = new Date(filters.start_date).toISOString();
+    }
 
-    return result as Search;
-  } catch (error) {
-    Logger.error(error);
+    Object.entries(filters).forEach(([key, value]) => {
+      url.searchParams.append(key, value);
+    });
   }
+
+  const result = await api(`${url.pathname}${url.search}`);
+
+  return result as Search;
 };
 
 export default {

@@ -4,7 +4,7 @@ import { SeasonArchive } from "./interfaces/season/SeasonArchive";
 import { SeasonLater } from "./interfaces/season/SeasonLater";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches anime of the specified season
@@ -13,39 +13,27 @@ import { api, Logger } from "./utils";
  * @param season - The wanted season
  */
 const anime = async (year: number, season: Seasons) => {
-  try {
-    const result = await api(`/season/${year}/${season}`);
+  const result = await api(`/season/${year}/${season}`);
 
-    return result as Season;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Season;
 };
 
 /**
  * Feteches all the years & their respective seasons that can be parsed from MyAnimeList
  */
 const archive = async () => {
-  try {
-    const result = await api("/season/archive");
+  const result = await api("/season/archive");
 
-    return result as SeasonArchive;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as SeasonArchive;
 };
 
 /**
  * Fetches anime that have been announced for the upcoming seasons
  */
 const later = async () => {
-  try {
-    const result = await api("/season/later");
+  const result = await api("/season/later");
 
-    return result as SeasonLater;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as SeasonLater;
 };
 
 export default {

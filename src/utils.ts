@@ -2,7 +2,6 @@
 import fetch from "cross-fetch";
 import PMemoize from "p-memoize";
 import PQueue from "p-queue";
-import pino from "pino";
 import LRU from "quick-lru";
 
 // package.json
@@ -35,9 +34,3 @@ const cachedFetchJson = PMemoize(fetchJson, {
 export async function api<T>(url: string): Promise<T> {
   return await queue.add(async () => await cachedFetchJson<T>(url));
 }
-
-// Fast JSON logger
-export const Logger = pino({
-  name: "jikants",
-  prettyPrint: true
-});

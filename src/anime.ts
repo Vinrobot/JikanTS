@@ -12,7 +12,7 @@ import { UserUpdates } from "./interfaces/anime/UserUpdates";
 import { Videos } from "./interfaces/anime/Videos";
 
 // Utils
-import { api, Logger } from "./utils";
+import { api } from "./utils";
 
 /**
  * Fetches the anime with the given ID
@@ -20,13 +20,9 @@ import { api, Logger } from "./utils";
  * @param id - The anime id
  */
 const byId = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}`);
+  const result = await api(`/anime/${id}`);
 
-    return result as AnimeById;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as AnimeById;
 };
 
 /**
@@ -35,13 +31,9 @@ const byId = async (id: number) => {
  * @param id - The anime id
  */
 const charactersStaff = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/characters_staff`);
+  const result = await api(`/anime/${id}/characters_staff`);
 
-    return result as CharactersStaff;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as CharactersStaff;
 };
 
 /**
@@ -51,13 +43,9 @@ const charactersStaff = async (id: number) => {
  * @param page - The page number
  */
 const episodes = async (id: number, page: number = 1) => {
-  try {
-    const result = await api(`/anime/${id}/episodes/${page}`);
+  const result = await api(`/anime/${id}/episodes/${page}`);
 
-    return result as Episodes;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Episodes;
 };
 
 /**
@@ -66,13 +54,9 @@ const episodes = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const forum = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/forum`);
+  const result = await api(`/anime/${id}/forum`);
 
-    return result as Forum;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Forum;
 };
 
 /**
@@ -81,13 +65,9 @@ const forum = async (id: number) => {
  * @param id - The anime id
  */
 const moreInfo = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/moreinfo`);
+  const result = await api(`/anime/${id}/moreinfo`);
 
-    return result as MoreInfo;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as MoreInfo;
 };
 
 /**
@@ -96,13 +76,9 @@ const moreInfo = async (id: number) => {
  * @param id - The anime id
  */
 const news = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/news`);
+  const result = await api(`/anime/${id}/news`);
 
-    return result as News;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as News;
 };
 
 /**
@@ -111,13 +87,9 @@ const news = async (id: number) => {
  * @param id - The anime id
  */
 const pictures = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/pictures`);
+  const result = await api(`/anime/${id}/pictures`);
 
-    return result;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result;
 };
 
 /**
@@ -126,13 +98,9 @@ const pictures = async (id: number) => {
  * @param id - The anime id
  */
 const recommendations = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/recommendations`);
+  const result = await api(`/anime/${id}/recommendations`);
 
-    return result as Recommendations;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Recommendations;
 };
 
 /**
@@ -142,13 +110,9 @@ const recommendations = async (id: number) => {
  * @param page - The page number
  */
 const reviews = async (id: number, page: number = 1) => {
-  try {
-    const result = await api(`/anime/${id}/reviews/${page}`);
+  const result = await api(`/anime/${id}/reviews/${page}`);
 
-    return result as Reviews;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Reviews;
 };
 
 /**
@@ -157,13 +121,9 @@ const reviews = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const stats = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/stats`);
+  const result = await api(`/anime/${id}/stats`);
 
-    return result as Stats;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Stats;
 };
 
 /**
@@ -173,13 +133,9 @@ const stats = async (id: number) => {
  * @param page - The page number
  */
 const userUpdates = async (id: number, page: number = 1) => {
-  try {
-    const result = await api(`/anime/${id}/userupdates/${page}`);
+  const result = await api(`/anime/${id}/userupdates/${page}`);
 
-    return result as UserUpdates;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as UserUpdates;
 };
 
 /**
@@ -188,13 +144,9 @@ const userUpdates = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const videos = async (id: number) => {
-  try {
-    const result = await api(`/anime/${id}/videos`);
+  const result = await api(`/anime/${id}/videos`);
 
-    return result as Videos;
-  } catch (error) {
-    Logger.error(error);
-  }
+  return result as Videos;
 };
 
 export default {
