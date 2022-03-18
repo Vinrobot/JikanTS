@@ -14,9 +14,7 @@ import { api } from "./utils";
  * @param id - The manga id
  */
 const characters = async (id: number) => {
-  const result = await api(`/manga/${id}/characters`);
-
-  return result as Characters;
+  return await api<Characters>(`/manga/${id}/characters`);
 };
 
 /**
@@ -25,9 +23,7 @@ const characters = async (id: number) => {
  * @param id - The manga id
  */
 const forum = async (id: number) => {
-  const result = await api(`/manga/${id}/forum`);
-
-  return result;
+  return await api<unknown>(`/manga/${id}/forum`);
 };
 
 /**
@@ -36,9 +32,7 @@ const forum = async (id: number) => {
  * @param id - The manga id
  */
 const moreInfo = async (id: number) => {
-  const result = await api(`/manga/${id}/moreinfo`);
-
-  return result;
+  return await api<unknown>(`/manga/${id}/moreinfo`);
 };
 
 /**
@@ -47,9 +41,7 @@ const moreInfo = async (id: number) => {
  * @param id - The manga id
  */
 const news = async (id: number) => {
-  const result = await api(`/manga/${id}/news`);
-
-  return result as News;
+  return await api<News>(`/manga/${id}/news`);
 };
 
 /**
@@ -58,9 +50,7 @@ const news = async (id: number) => {
  * @param id - The manga id
  */
 const pictures = async (id: number) => {
-  const result = await api(`/manga/${id}/pictures`);
-
-  return result;
+  return await api<unknown>(`/manga/${id}/pictures`);
 };
 
 /**
@@ -69,9 +59,7 @@ const pictures = async (id: number) => {
  * @param id - The manga id
  */
 const recommendations = async (id: number) => {
-  const result = await api(`/manga/${id}/recommendations`);
-
-  return result;
+  return await api<unknown>(`/manga/${id}/recommendations`);
 };
 
 /**
@@ -81,9 +69,7 @@ const recommendations = async (id: number) => {
  * @param page - The page number
  */
 const reviews = async (id: number, page: number = 1) => {
-  const result = await api(`/manga/${id}/reviews/${page}`);
-
-  return result as Reviews;
+  return await api<Reviews>(`/manga/${id}/reviews/${page}`);
 };
 
 /**
@@ -92,9 +78,7 @@ const reviews = async (id: number, page: number = 1) => {
  * @param id - The manga id
  */
 const stats = async (id: number) => {
-  const result = await api(`/manga/${id}/stats`);
-
-  return result as Stats;
+  return await api<Stats>(`/manga/${id}/stats`);
 };
 
 /**
@@ -104,9 +88,7 @@ const stats = async (id: number) => {
  * @param page - The page number
  */
 const userUpdates = async (id: number, page: number = 1) => {
-  const result = await api(`/manga/${id}/userupdates/${page}`);
-
-  return result as UserUpdates;
+  return await api<UserUpdates>(`/manga/${id}/userupdates/${page}`);
 };
 
 export default {

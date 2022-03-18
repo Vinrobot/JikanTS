@@ -7,9 +7,7 @@ import { api } from "./utils";
  * @param id - The person id
  */
 const pictures = async (id: number) => {
-  const result = await api(`/person/${id}/pictures`);
-
-  return result;
+  return await api<unknown>(`/person/${id}/pictures`);
 };
 
 export default {

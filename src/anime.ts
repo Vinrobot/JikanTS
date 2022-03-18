@@ -20,9 +20,7 @@ import { api } from "./utils";
  * @param id - The anime id
  */
 const byId = async (id: number) => {
-  const result = await api(`/anime/${id}`);
-
-  return result as AnimeById;
+  return await api<AnimeById>(`/anime/${id}`);
 };
 
 /**
@@ -31,9 +29,7 @@ const byId = async (id: number) => {
  * @param id - The anime id
  */
 const charactersStaff = async (id: number) => {
-  const result = await api(`/anime/${id}/characters_staff`);
-
-  return result as CharactersStaff;
+  return await api<CharactersStaff>(`/anime/${id}/characters_staff`);
 };
 
 /**
@@ -43,9 +39,7 @@ const charactersStaff = async (id: number) => {
  * @param page - The page number
  */
 const episodes = async (id: number, page: number = 1) => {
-  const result = await api(`/anime/${id}/episodes/${page}`);
-
-  return result as Episodes;
+  return await api<Episodes>(`/anime/${id}/episodes/${page}`);
 };
 
 /**
@@ -54,9 +48,7 @@ const episodes = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const forum = async (id: number) => {
-  const result = await api(`/anime/${id}/forum`);
-
-  return result as Forum;
+  return await api<Forum>(`/anime/${id}/forum`);
 };
 
 /**
@@ -65,9 +57,7 @@ const forum = async (id: number) => {
  * @param id - The anime id
  */
 const moreInfo = async (id: number) => {
-  const result = await api(`/anime/${id}/moreinfo`);
-
-  return result as MoreInfo;
+  return await api<MoreInfo>(`/anime/${id}/moreinfo`);
 };
 
 /**
@@ -76,9 +66,7 @@ const moreInfo = async (id: number) => {
  * @param id - The anime id
  */
 const news = async (id: number) => {
-  const result = await api(`/anime/${id}/news`);
-
-  return result as News;
+  return await api<News>(`/anime/${id}/news`);
 };
 
 /**
@@ -87,9 +75,7 @@ const news = async (id: number) => {
  * @param id - The anime id
  */
 const pictures = async (id: number) => {
-  const result = await api(`/anime/${id}/pictures`);
-
-  return result;
+  return await api<unknown>(`/anime/${id}/pictures`);
 };
 
 /**
@@ -98,9 +84,7 @@ const pictures = async (id: number) => {
  * @param id - The anime id
  */
 const recommendations = async (id: number) => {
-  const result = await api(`/anime/${id}/recommendations`);
-
-  return result as Recommendations;
+  return await api<Recommendations>(`/anime/${id}/recommendations`);
 };
 
 /**
@@ -110,9 +94,7 @@ const recommendations = async (id: number) => {
  * @param page - The page number
  */
 const reviews = async (id: number, page: number = 1) => {
-  const result = await api(`/anime/${id}/reviews/${page}`);
-
-  return result as Reviews;
+  return await api<Reviews>(`/anime/${id}/reviews/${page}`);
 };
 
 /**
@@ -121,9 +103,7 @@ const reviews = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const stats = async (id: number) => {
-  const result = await api(`/anime/${id}/stats`);
-
-  return result as Stats;
+  return await api<Stats>(`/anime/${id}/stats`);
 };
 
 /**
@@ -133,9 +113,7 @@ const stats = async (id: number) => {
  * @param page - The page number
  */
 const userUpdates = async (id: number, page: number = 1) => {
-  const result = await api(`/anime/${id}/userupdates/${page}`);
-
-  return result as UserUpdates;
+  return await api<UserUpdates>(`/anime/${id}/userupdates/${page}`);
 };
 
 /**
@@ -144,9 +122,7 @@ const userUpdates = async (id: number, page: number = 1) => {
  * @param id - The anime id
  */
 const videos = async (id: number) => {
-  const result = await api(`/anime/${id}/videos`);
-
-  return result as Videos;
+  return await api<Videos>(`/anime/${id}/videos`);
 };
 
 export default {

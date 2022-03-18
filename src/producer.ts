@@ -10,9 +10,7 @@ import { api } from "./utils";
  * @param id - The producer id
  */
 const get = async (id: number, page: number = 1) => {
-  const result = await api(`/producer/${id}/${page}`);
-
-  return result as Producer;
+  return await api<Producer>(`/producer/${id}/${page}`);
 };
 
 export default {

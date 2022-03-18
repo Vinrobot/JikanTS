@@ -10,9 +10,7 @@ import { api } from "./utils";
  * @param id - The magazine id
  */
 const get = async (id: number, page: number = 1) => {
-  const result = await api(`/magazine/${id}/${page}`);
-
-  return result as Magazine;
+  return await api<Magazine>(`/magazine/${id}/${page}`);
 };
 
 export default {

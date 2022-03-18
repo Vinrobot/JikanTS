@@ -10,9 +10,7 @@ import { api } from "./utils";
  * @param id - The character id
  */
 const pictures = async (id: number) => {
-  const result = await api(`/character/${id}/pictures`);
-
-  return result as Pictures;
+  return await api<Pictures>(`/character/${id}/pictures`);
 };
 
 export default {

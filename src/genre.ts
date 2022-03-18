@@ -11,9 +11,7 @@ import { api } from "./utils";
  * @param page - Number of the page
  */
 const anime = async (genreId: number, page: number = 1) => {
-  const result = await api(`/genre/anime/${genreId}/${page}`);
-
-  return result as Anime;
+  return await api<Anime>(`/genre/anime/${genreId}/${page}`);
 };
 
 /**
@@ -23,9 +21,7 @@ const anime = async (genreId: number, page: number = 1) => {
  * @param page - Number of the page
  */
 const manga = async (genreId: number, page: number = 1) => {
-  const result = await api(`/genre/manga/${genreId}/${page}`);
-
-  return result as Manga;
+  return await api<Manga>(`/genre/manga/${genreId}/${page}`);
 };
 
 export default {

@@ -34,9 +34,7 @@ const search = async (
     });
   }
 
-  const result = await api(`${url.pathname}${url.search}`);
-
-  return result as Search;
+  return await api<Search>(`${url.pathname}${url.search}`);
 };
 
 export default {

@@ -16,18 +16,14 @@ const requests = async (
   period: Periods = "monthly",
   offset: number = 1000
 ) => {
-  const result = await api(`/meta/requests/${type}/${period}/${offset}`);
-
-  return result;
+  return await api<unknown>(`/meta/requests/${type}/${period}/${offset}`);
 };
 
 /**
  * Fetches the status of the Jikan REST API
  */
 const status = async () => {
-  const result = await api("/meta/status");
-
-  return result as Status;
+  return await api<Status>("/meta/status");
 };
 
 export default {

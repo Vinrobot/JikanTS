@@ -5,15 +5,11 @@ import { Info, Members } from "./interfaces/club/Club";
 import { api } from "./utils";
 
 const info = async (id: number) => {
-  const result = await api(`/club/${id}`);
-
-  return result as Info;
+  return await api<Info>(`/club/${id}`);
 };
 
 const members = async (id: number, page: number = 1) => {
-  const result = await api(`/club/${id}/members/${page}`);
-
-  return result as Members;
+  return await api<Members>(`/club/${id}/members/${page}`);
 };
 
 export default {

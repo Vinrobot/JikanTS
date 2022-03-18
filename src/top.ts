@@ -21,9 +21,7 @@ const items = async (
     url += `/${subType}`;
   }
 
-  const result = await api(url);
-
-  return result as Result;
+  return await api<Result>(url);
 };
 
 export default {

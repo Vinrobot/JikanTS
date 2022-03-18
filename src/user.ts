@@ -20,9 +20,7 @@ const animeList = async (
   type: AnimeListTypes = "all",
   page: number = 1
 ) => {
-  const result = await api(`/user/${username}/animelist/${type}/${page}`);
-
-  return result as AnimeList;
+  return await api<AnimeList>(`/user/${username}/animelist/${type}/${page}`);
 };
 
 /**
@@ -32,9 +30,7 @@ const animeList = async (
  * @param page - The page number
  */
 const friends = async (username: string, page: number = 1) => {
-  const result = await api(`/user/${username}/friends/${page}`);
-
-  return result as Friends;
+  return await api<Friends>(`/user/${username}/friends/${page}`);
 };
 
 /**
@@ -45,21 +41,15 @@ const friends = async (username: string, page: number = 1) => {
  */
 const history = async (username: string, type: Types = "both") => {
   if (type === "anime") {
-    const anime = await api(`/user/${username}/history/anime`);
-
-    return anime as History;
+    return await api<History>(`/user/${username}/history/anime`);
   }
 
   if (type === "both") {
-    const both = await api(`/user/${username}/history`);
-
-    return both as History;
+    return await api<History>(`/user/${username}/history`);
   }
 
   if (type === "manga") {
-    const manga = await api(`/user/${username}/history/manga`);
-
-    return manga as History;
+    return await api<History>(`/user/${username}/history/manga`);
   }
 };
 
@@ -75,9 +65,7 @@ const mangaList = async (
   type: MangaListTypes = "all",
   page: number = 1
 ) => {
-  const result = await api(`/user/${username}/mangalist/${type}/${page}`);
-
-  return result as MangaList;
+  return await api<MangaList>(`/user/${username}/mangalist/${type}/${page}`);
 };
 
 /**
@@ -86,9 +74,7 @@ const mangaList = async (
  * @param username - Username on MyAnimeList
  */
 const profile = async (username: string) => {
-  const result = await api(`/user/${username}`);
-
-  return result as Profile;
+  return await api<Profile>(`/user/${username}`);
 };
 
 export default {

@@ -13,27 +13,21 @@ import { api } from "./utils";
  * @param season - The wanted season
  */
 const anime = async (year: number, season: Seasons) => {
-  const result = await api(`/season/${year}/${season}`);
-
-  return result as Season;
+  return await api<Season>(`/season/${year}/${season}`);
 };
 
 /**
  * Feteches all the years & their respective seasons that can be parsed from MyAnimeList
  */
 const archive = async () => {
-  const result = await api("/season/archive");
-
-  return result as SeasonArchive;
+  return await api<SeasonArchive>("/season/archive");
 };
 
 /**
  * Fetches anime that have been announced for the upcoming seasons
  */
 const later = async () => {
-  const result = await api("/season/later");
-
-  return result as SeasonLater;
+  return await api<SeasonLater>("/season/later");
 };
 
 export default {
