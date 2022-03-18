@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Periods, Status, Types } from "./interfaces/meta/Meta";
 
@@ -20,8 +17,6 @@ const requests = async (
   offset: number = 1000
 ) => {
   try {
-    ow(offset, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/meta/requests/${type}/${period}/${offset}`)
     );

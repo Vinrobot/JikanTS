@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Characters } from "./interfaces/manga/Characters";
 import { News } from "./interfaces/manga/News";
@@ -18,8 +15,6 @@ import { api, Logger, queue } from "./utils";
  */
 const characters = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/characters`)
     );
@@ -37,8 +32,6 @@ const characters = async (id: number) => {
  */
 const forum = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/forum`)
     );
@@ -56,8 +49,6 @@ const forum = async (id: number) => {
  */
 const moreInfo = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/moreinfo`)
     );
@@ -75,8 +66,6 @@ const moreInfo = async (id: number) => {
  */
 const news = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/news`)
     );
@@ -94,8 +83,6 @@ const news = async (id: number) => {
  */
 const pictures = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/pictures`)
     );
@@ -113,8 +100,6 @@ const pictures = async (id: number) => {
  */
 const recommendations = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/recommendations`)
     );
@@ -133,9 +118,6 @@ const recommendations = async (id: number) => {
  */
 const reviews = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/reviews/${page}`)
     );
@@ -153,8 +135,6 @@ const reviews = async (id: number, page: number = 1) => {
  */
 const stats = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/stats`)
     );
@@ -173,9 +153,6 @@ const stats = async (id: number) => {
  */
 const userUpdates = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/manga/${id}/userupdates/${page}`)
     );

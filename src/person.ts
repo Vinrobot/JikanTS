@@ -1,8 +1,3 @@
-// Imports
-import ow from "ow";
-
-// Interfaces
-
 // Utils
 import { api, Logger, queue } from "./utils";
 
@@ -13,8 +8,6 @@ import { api, Logger, queue } from "./utils";
  */
 const pictures = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/person/${id}/pictures`)
     );

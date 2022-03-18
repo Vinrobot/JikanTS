@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { AnimeList, AnimeListTypes } from "./interfaces/user/AnimeList";
 import { Friends } from "./interfaces/user/Friends";
@@ -24,8 +21,6 @@ const animeList = async (
   page: number = 1
 ) => {
   try {
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/user/${username}/animelist/${type}/${page}`)
     );
@@ -44,8 +39,6 @@ const animeList = async (
  */
 const friends = async (username: string, page: number = 1) => {
   try {
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/user/${username}/friends/${page}`)
     );
@@ -105,8 +98,6 @@ const mangaList = async (
   page: number = 1
 ) => {
   try {
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/user/${username}/mangalist/${type}/${page}`)
     );

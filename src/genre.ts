@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Anime, Manga } from "./interfaces/genre/Genre";
 
@@ -15,9 +12,6 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (genreId: number, page: number = 1) => {
   try {
-    ow(genreId, ow.number.lessThanOrEqual(43));
-    ow(genreId, ow.number.greaterThanOrEqual(1));
-
     const { body } = await queue.add(
       async () => await api(`/genre/anime/${genreId}/${page}`)
     );
@@ -36,9 +30,6 @@ const anime = async (genreId: number, page: number = 1) => {
  */
 const manga = async (genreId: number, page: number = 1) => {
   try {
-    ow(genreId, ow.number.lessThanOrEqual(43));
-    ow(genreId, ow.number.greaterThanOrEqual(1));
-
     const { body } = await queue.add(
       async () => await api(`/genre/manga/${genreId}/${page}`)
     );

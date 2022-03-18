@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { AnimeById } from "./interfaces/anime/ById";
 import { CharactersStaff } from "./interfaces/anime/CharactersStaff";
@@ -24,8 +21,6 @@ import { api, Logger, queue } from "./utils";
  */
 const byId = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(async () => await api(`/anime/${id}`));
 
     return body as AnimeById;
@@ -41,8 +36,6 @@ const byId = async (id: number) => {
  */
 const charactersStaff = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/characters_staff`)
     );
@@ -61,9 +54,6 @@ const charactersStaff = async (id: number) => {
  */
 const episodes = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/episodes/${page}`)
     );
@@ -81,8 +71,6 @@ const episodes = async (id: number, page: number = 1) => {
  */
 const forum = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/forum`)
     );
@@ -100,8 +88,6 @@ const forum = async (id: number) => {
  */
 const moreInfo = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/moreinfo`)
     );
@@ -119,8 +105,6 @@ const moreInfo = async (id: number) => {
  */
 const news = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/news`)
     );
@@ -138,8 +122,6 @@ const news = async (id: number) => {
  */
 const pictures = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/pictures`)
     );
@@ -157,8 +139,6 @@ const pictures = async (id: number) => {
  */
 const recommendations = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/recommendations`)
     );
@@ -177,9 +157,6 @@ const recommendations = async (id: number) => {
  */
 const reviews = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/reviews/${page}`)
     );
@@ -197,8 +174,6 @@ const reviews = async (id: number, page: number = 1) => {
  */
 const stats = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/stats`)
     );
@@ -217,9 +192,6 @@ const stats = async (id: number) => {
  */
 const userUpdates = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/userupdates/${page}`)
     );
@@ -237,8 +209,6 @@ const userUpdates = async (id: number, page: number = 1) => {
  */
 const videos = async (id: number) => {
   try {
-    ow(id, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/anime/${id}/videos`)
     );

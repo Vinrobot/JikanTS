@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Producer } from "./interfaces/producer/Producer";
 
@@ -14,9 +11,6 @@ import { api, Logger, queue } from "./utils";
  */
 const get = async (id: number, page: number = 1) => {
   try {
-    ow(id, ow.number.positive);
-    ow(page, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/producer/${id}/${page}`)
     );

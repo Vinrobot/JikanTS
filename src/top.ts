@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Result, SubTypes, Types } from "./interfaces/top/Top";
 
@@ -20,8 +17,6 @@ const items = async (
   subType?: SubTypes
 ) => {
   try {
-    ow(page, ow.number.positive);
-
     if (subType) {
       const result = await queue.add(
         async () => await api(`/top/${type}/${page}/${subType}`)

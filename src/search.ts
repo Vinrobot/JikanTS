@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Filters, Search, SearchTypes } from "./interfaces/search/Search";
 
@@ -22,27 +19,11 @@ const search = async (
   filters?: Filters
 ) => {
   try {
-    ow(page, ow.number.positive);
-    ow(query, ow.string.minLength(3));
-
     const url = new URL(`/search/${type}?q=${query}&page=${page}`, baseUrl);
 
     if (filters) {
       if (filters.end_date) {
         filters.end_date = new Date(filters.end_date).toISOString();
-      }
-
-      if (filters.genre) {
-        ow(filters.genre, ow.number.lessThanOrEqual(44));
-        ow(filters.genre, ow.number.greaterThanOrEqual(1));
-      }
-
-      if (filters.limit) {
-        ow(filters.limit, ow.number.positive);
-      }
-
-      if (filters.score) {
-        ow(filters.score, ow.number.positive);
       }
 
       if (filters.start_date) {

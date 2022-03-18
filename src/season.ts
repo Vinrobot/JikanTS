@@ -1,6 +1,3 @@
-// Imports
-import ow from "ow";
-
 // Interfaces
 import { Season, Seasons } from "./interfaces/season/Season";
 import { SeasonArchive } from "./interfaces/season/SeasonArchive";
@@ -17,8 +14,6 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (year: number, season: Seasons) => {
   try {
-    ow(year, ow.number.positive);
-
     const { body } = await queue.add(
       async () => await api(`/season/${year}/${season}`)
     );
