@@ -2,7 +2,7 @@
 import { Periods, Status, Types } from "./interfaces/meta/Meta";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Requests related to meta information regarding the Jikan REST Instance
@@ -17,9 +17,7 @@ const requests = async (
   offset: number = 1000
 ) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/meta/requests/${type}/${period}/${offset}`)
-    );
+    const result = await api(`/meta/requests/${type}/${period}/${offset}`);
 
     return result;
   } catch (error) {
@@ -32,7 +30,7 @@ const requests = async (
  */
 const status = async () => {
   try {
-    const result = await queue.add(async () => await api("/meta/status"));
+    const result = await api("/meta/status");
 
     return result as Status;
   } catch (error) {

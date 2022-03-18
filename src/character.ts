@@ -2,7 +2,7 @@
 import { Pictures } from "./interfaces/character/Pictures";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches pictures related to the item
@@ -11,9 +11,7 @@ import { api, Logger, queue } from "./utils";
  */
 const pictures = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/character/${id}/pictures`)
-    );
+    const result = await api(`/character/${id}/pictures`);
 
     return result as Pictures;
   } catch (error) {

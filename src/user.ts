@@ -6,7 +6,7 @@ import { MangaList, MangaListTypes } from "./interfaces/user/MangaList";
 import { Profile } from "./interfaces/user/Profile";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches the specified user animelist
@@ -21,9 +21,7 @@ const animeList = async (
   page: number = 1
 ) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/user/${username}/animelist/${type}/${page}`)
-    );
+    const result = await api(`/user/${username}/animelist/${type}/${page}`);
 
     return result as AnimeList;
   } catch (error) {
@@ -39,9 +37,7 @@ const animeList = async (
  */
 const friends = async (username: string, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/user/${username}/friends/${page}`)
-    );
+    const result = await api(`/user/${username}/friends/${page}`);
 
     return result as Friends;
   } catch (error) {
@@ -58,25 +54,19 @@ const friends = async (username: string, page: number = 1) => {
 const history = async (username: string, type: Types = "both") => {
   try {
     if (type === "anime") {
-      const anime = await queue.add(
-        async () => await api(`/user/${username}/history/anime`)
-      );
+      const anime = await api(`/user/${username}/history/anime`);
 
       return anime as History;
     }
 
     if (type === "both") {
-      const both = await queue.add(
-        async () => await api(`/user/${username}/history`)
-      );
+      const both = await api(`/user/${username}/history`);
 
       return both as History;
     }
 
     if (type === "manga") {
-      const manga = await queue.add(
-        async () => await api(`/user/${username}/history/manga`)
-      );
+      const manga = await api(`/user/${username}/history/manga`);
 
       return manga as History;
     }
@@ -98,9 +88,7 @@ const mangaList = async (
   page: number = 1
 ) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/user/${username}/mangalist/${type}/${page}`)
-    );
+    const result = await api(`/user/${username}/mangalist/${type}/${page}`);
 
     return result as MangaList;
   } catch (error) {
@@ -115,9 +103,7 @@ const mangaList = async (
  */
 const profile = async (username: string) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/user/${username}`)
-    );
+    const result = await api(`/user/${username}`);
 
     return result as Profile;
   } catch (error) {

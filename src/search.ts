@@ -2,7 +2,7 @@
 import { Filters, Search, SearchTypes } from "./interfaces/search/Search";
 
 // Utils
-import { api, baseUrl, Logger, queue } from "./utils";
+import { api, baseUrl, Logger } from "./utils";
 
 /**
  * Search method
@@ -35,9 +35,7 @@ const search = async (
       });
     }
 
-    const result = await queue.add(
-      async () => await api(`${url.pathname}${url.search}`)
-    );
+    const result = await api(`${url.pathname}${url.search}`);
 
     return result as Search;
   } catch (error) {

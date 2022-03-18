@@ -2,7 +2,7 @@
 import { Result, SubTypes, Types } from "./interfaces/top/Top";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches top items on MyAnimeList
@@ -22,9 +22,7 @@ const items = async (
       url += `/${subType}`;
     }
 
-    const result = await queue.add(
-      async () => await api(url)
-    );
+    const result = await api(url);
 
     return result as Result;
   } catch (error) {

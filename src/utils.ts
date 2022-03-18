@@ -26,7 +26,15 @@ async function fetchJson<T = any>(url: string): Promise<T> {
 }
 
 // Memoized http client
-export const api = PMemoize(fetchJson, { cache: new LRU({ maxSize: 1000 }) });
+const cachedFetchJson = PMemoize(fetchJson, {
+  cache: new LRU({
+    maxSize: 1000
+  })
+});
+
+export async function api<T>(url: string): Promise<T> {
+  return await queue.add(async () => await cachedFetchJson<T>(url));
+}
 
 // Fast JSON logger
 export const Logger = pino({

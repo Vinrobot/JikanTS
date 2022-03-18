@@ -2,7 +2,7 @@
 import { Anime, Manga } from "./interfaces/genre/Genre";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches Anime items of the genre
@@ -12,9 +12,7 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (genreId: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/genre/anime/${genreId}/${page}`)
-    );
+    const result = await api(`/genre/anime/${genreId}/${page}`);
 
     return result as Anime;
   } catch (error) {
@@ -30,9 +28,7 @@ const anime = async (genreId: number, page: number = 1) => {
  */
 const manga = async (genreId: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/genre/manga/${genreId}/${page}`)
-    );
+    const result = await api(`/genre/manga/${genreId}/${page}`);
 
     return result as Manga;
   } catch (error) {

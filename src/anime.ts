@@ -12,7 +12,7 @@ import { UserUpdates } from "./interfaces/anime/UserUpdates";
 import { Videos } from "./interfaces/anime/Videos";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches the anime with the given ID
@@ -21,7 +21,7 @@ import { api, Logger, queue } from "./utils";
  */
 const byId = async (id: number) => {
   try {
-    const result = await queue.add(async () => await api(`/anime/${id}`));
+    const result = await api(`/anime/${id}`);
 
     return result as AnimeById;
   } catch (error) {
@@ -36,9 +36,7 @@ const byId = async (id: number) => {
  */
 const charactersStaff = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/characters_staff`)
-    );
+    const result = await api(`/anime/${id}/characters_staff`);
 
     return result as CharactersStaff;
   } catch (error) {
@@ -54,9 +52,7 @@ const charactersStaff = async (id: number) => {
  */
 const episodes = async (id: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/episodes/${page}`)
-    );
+    const result = await api(`/anime/${id}/episodes/${page}`);
 
     return result as Episodes;
   } catch (error) {
@@ -71,9 +67,7 @@ const episodes = async (id: number, page: number = 1) => {
  */
 const forum = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/forum`)
-    );
+    const result = await api(`/anime/${id}/forum`);
 
     return result as Forum;
   } catch (error) {
@@ -88,9 +82,7 @@ const forum = async (id: number) => {
  */
 const moreInfo = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/moreinfo`)
-    );
+    const result = await api(`/anime/${id}/moreinfo`);
 
     return result as MoreInfo;
   } catch (error) {
@@ -105,9 +97,7 @@ const moreInfo = async (id: number) => {
  */
 const news = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/news`)
-    );
+    const result = await api(`/anime/${id}/news`);
 
     return result as News;
   } catch (error) {
@@ -122,9 +112,7 @@ const news = async (id: number) => {
  */
 const pictures = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/pictures`)
-    );
+    const result = await api(`/anime/${id}/pictures`);
 
     return result;
   } catch (error) {
@@ -139,9 +127,7 @@ const pictures = async (id: number) => {
  */
 const recommendations = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/recommendations`)
-    );
+    const result = await api(`/anime/${id}/recommendations`);
 
     return result as Recommendations;
   } catch (error) {
@@ -157,9 +143,7 @@ const recommendations = async (id: number) => {
  */
 const reviews = async (id: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/reviews/${page}`)
-    );
+    const result = await api(`/anime/${id}/reviews/${page}`);
 
     return result as Reviews;
   } catch (error) {
@@ -174,9 +158,7 @@ const reviews = async (id: number, page: number = 1) => {
  */
 const stats = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/stats`)
-    );
+    const result = await api(`/anime/${id}/stats`);
 
     return result as Stats;
   } catch (error) {
@@ -192,9 +174,7 @@ const stats = async (id: number) => {
  */
 const userUpdates = async (id: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/userupdates/${page}`)
-    );
+    const result = await api(`/anime/${id}/userupdates/${page}`);
 
     return result as UserUpdates;
   } catch (error) {
@@ -209,9 +189,7 @@ const userUpdates = async (id: number, page: number = 1) => {
  */
 const videos = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/anime/${id}/videos`)
-    );
+    const result = await api(`/anime/${id}/videos`);
 
     return result as Videos;
   } catch (error) {

@@ -1,5 +1,5 @@
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 /**
  * Fetches pictures related to the item
@@ -8,9 +8,7 @@ import { api, Logger, queue } from "./utils";
  */
 const pictures = async (id: number) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/person/${id}/pictures`)
-    );
+    const result = await api(`/person/${id}/pictures`);
 
     return result;
   } catch (error) {

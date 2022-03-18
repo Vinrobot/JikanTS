@@ -2,11 +2,11 @@
 import { Info, Members } from "./interfaces/club/Club";
 
 // Utils
-import { api, Logger, queue } from "./utils";
+import { api, Logger } from "./utils";
 
 const info = async (id: number) => {
   try {
-    const result = await queue.add(async () => await api(`/club/${id}`));
+    const result = await api(`/club/${id}`);
 
     return result as Info;
   } catch (error) {
@@ -16,9 +16,7 @@ const info = async (id: number) => {
 
 const members = async (id: number, page: number = 1) => {
   try {
-    const result = await queue.add(
-      async () => await api(`/club/${id}/members/${page}`)
-    );
+    const result = await api(`/club/${id}/members/${page}`);
 
     return result as Members;
   } catch (error) {
