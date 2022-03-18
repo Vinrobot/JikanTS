@@ -15,11 +15,11 @@ import { api, Logger, queue } from "./utils";
  */
 const characters = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/characters`)
     );
 
-    return body as Characters;
+    return result as Characters;
   } catch (error) {
     Logger.error(error);
   }
@@ -32,11 +32,11 @@ const characters = async (id: number) => {
  */
 const forum = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/forum`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -49,11 +49,11 @@ const forum = async (id: number) => {
  */
 const moreInfo = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/moreinfo`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -66,11 +66,11 @@ const moreInfo = async (id: number) => {
  */
 const news = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/news`)
     );
 
-    return body as News;
+    return result as News;
   } catch (error) {
     Logger.error(error);
   }
@@ -83,11 +83,11 @@ const news = async (id: number) => {
  */
 const pictures = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/pictures`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -100,11 +100,11 @@ const pictures = async (id: number) => {
  */
 const recommendations = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/recommendations`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -118,11 +118,11 @@ const recommendations = async (id: number) => {
  */
 const reviews = async (id: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/reviews/${page}`)
     );
 
-    return body as Reviews;
+    return result as Reviews;
   } catch (error) {
     Logger.error(error);
   }
@@ -135,11 +135,11 @@ const reviews = async (id: number, page: number = 1) => {
  */
 const stats = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/stats`)
     );
 
-    return body as Stats;
+    return result as Stats;
   } catch (error) {
     Logger.error(error);
   }
@@ -153,11 +153,11 @@ const stats = async (id: number) => {
  */
 const userUpdates = async (id: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/manga/${id}/userupdates/${page}`)
     );
 
-    return body as UserUpdates;
+    return result as UserUpdates;
   } catch (error) {
     Logger.error(error);
   }

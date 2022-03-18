@@ -11,11 +11,11 @@ import { api, Logger, queue } from "./utils";
  */
 const pictures = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/character/${id}/pictures`)
     );
 
-    return body as Pictures;
+    return result as Pictures;
   } catch (error) {
     Logger.error(error);
   }

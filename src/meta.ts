@@ -17,11 +17,11 @@ const requests = async (
   offset: number = 1000
 ) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/meta/requests/${type}/${period}/${offset}`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -32,9 +32,9 @@ const requests = async (
  */
 const status = async () => {
   try {
-    const { body } = await queue.add(async () => await api("/meta/status"));
+    const result = await queue.add(async () => await api("/meta/status"));
 
-    return body as Status;
+    return result as Status;
   } catch (error) {
     Logger.error(error);
   }

@@ -21,11 +21,11 @@ const animeList = async (
   page: number = 1
 ) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/user/${username}/animelist/${type}/${page}`)
     );
 
-    return body as AnimeList;
+    return result as AnimeList;
   } catch (error) {
     Logger.error(error);
   }
@@ -39,11 +39,11 @@ const animeList = async (
  */
 const friends = async (username: string, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/user/${username}/friends/${page}`)
     );
 
-    return body as Friends;
+    return result as Friends;
   } catch (error) {
     Logger.error(error);
   }
@@ -62,7 +62,7 @@ const history = async (username: string, type: Types = "both") => {
         async () => await api(`/user/${username}/history/anime`)
       );
 
-      return anime.body as History;
+      return anime as History;
     }
 
     if (type === "both") {
@@ -70,7 +70,7 @@ const history = async (username: string, type: Types = "both") => {
         async () => await api(`/user/${username}/history`)
       );
 
-      return both.body as History;
+      return both as History;
     }
 
     if (type === "manga") {
@@ -78,7 +78,7 @@ const history = async (username: string, type: Types = "both") => {
         async () => await api(`/user/${username}/history/manga`)
       );
 
-      return manga.body as History;
+      return manga as History;
     }
   } catch (error) {
     Logger.error(error);
@@ -98,11 +98,11 @@ const mangaList = async (
   page: number = 1
 ) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/user/${username}/mangalist/${type}/${page}`)
     );
 
-    return body as MangaList;
+    return result as MangaList;
   } catch (error) {
     Logger.error(error);
   }
@@ -115,11 +115,11 @@ const mangaList = async (
  */
 const profile = async (username: string) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/user/${username}`)
     );
 
-    return body as Profile;
+    return result as Profile;
   } catch (error) {
     Logger.error(error);
   }

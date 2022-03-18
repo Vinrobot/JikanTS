@@ -12,11 +12,11 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (genreId: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/genre/anime/${genreId}/${page}`)
     );
 
-    return body as Anime;
+    return result as Anime;
   } catch (error) {
     Logger.error(error);
   }
@@ -30,11 +30,11 @@ const anime = async (genreId: number, page: number = 1) => {
  */
 const manga = async (genreId: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/genre/manga/${genreId}/${page}`)
     );
 
-    return body as Manga;
+    return result as Manga;
   } catch (error) {
     Logger.error(error);
   }

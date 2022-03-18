@@ -21,9 +21,9 @@ import { api, Logger, queue } from "./utils";
  */
 const byId = async (id: number) => {
   try {
-    const { body } = await queue.add(async () => await api(`/anime/${id}`));
+    const result = await queue.add(async () => await api(`/anime/${id}`));
 
-    return body as AnimeById;
+    return result as AnimeById;
   } catch (error) {
     Logger.error(error);
   }
@@ -36,11 +36,11 @@ const byId = async (id: number) => {
  */
 const charactersStaff = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/characters_staff`)
     );
 
-    return body as CharactersStaff;
+    return result as CharactersStaff;
   } catch (error) {
     Logger.error(error);
   }
@@ -54,11 +54,11 @@ const charactersStaff = async (id: number) => {
  */
 const episodes = async (id: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/episodes/${page}`)
     );
 
-    return body as Episodes;
+    return result as Episodes;
   } catch (error) {
     Logger.error(error);
   }
@@ -71,11 +71,11 @@ const episodes = async (id: number, page: number = 1) => {
  */
 const forum = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/forum`)
     );
 
-    return body as Forum;
+    return result as Forum;
   } catch (error) {
     Logger.error(error);
   }
@@ -88,11 +88,11 @@ const forum = async (id: number) => {
  */
 const moreInfo = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/moreinfo`)
     );
 
-    return body as MoreInfo;
+    return result as MoreInfo;
   } catch (error) {
     Logger.error(error);
   }
@@ -105,11 +105,11 @@ const moreInfo = async (id: number) => {
  */
 const news = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/news`)
     );
 
-    return body as News;
+    return result as News;
   } catch (error) {
     Logger.error(error);
   }
@@ -122,11 +122,11 @@ const news = async (id: number) => {
  */
 const pictures = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/pictures`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }
@@ -139,11 +139,11 @@ const pictures = async (id: number) => {
  */
 const recommendations = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/recommendations`)
     );
 
-    return body as Recommendations;
+    return result as Recommendations;
   } catch (error) {
     Logger.error(error);
   }
@@ -157,11 +157,11 @@ const recommendations = async (id: number) => {
  */
 const reviews = async (id: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/reviews/${page}`)
     );
 
-    return body as Reviews;
+    return result as Reviews;
   } catch (error) {
     Logger.error(error);
   }
@@ -174,11 +174,11 @@ const reviews = async (id: number, page: number = 1) => {
  */
 const stats = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/stats`)
     );
 
-    return body as Stats;
+    return result as Stats;
   } catch (error) {
     Logger.error(error);
   }
@@ -192,11 +192,11 @@ const stats = async (id: number) => {
  */
 const userUpdates = async (id: number, page: number = 1) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/userupdates/${page}`)
     );
 
-    return body as UserUpdates;
+    return result as UserUpdates;
   } catch (error) {
     Logger.error(error);
   }
@@ -209,11 +209,11 @@ const userUpdates = async (id: number, page: number = 1) => {
  */
 const videos = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/anime/${id}/videos`)
     );
 
-    return body as Videos;
+    return result as Videos;
   } catch (error) {
     Logger.error(error);
   }

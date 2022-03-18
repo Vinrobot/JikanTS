@@ -12,7 +12,7 @@ import pkg from "../package.json";
 export const baseUrl = "https://api.jikan.moe/v3";
 export const queue = new PQueue({ concurrency: 2 });
 
-async function fetchJson<T = any>(url: string): Promise<{ body: T }> {
+async function fetchJson<T = any>(url: string): Promise<T> {
   const request: RequestInit = {
     headers: {
       "Content-Type": "application/json",
@@ -22,8 +22,7 @@ async function fetchJson<T = any>(url: string): Promise<{ body: T }> {
     mode: "cors"
   };
   const response = await fetch(baseUrl + url, request);
-  const json = (await response.json()) as T;
-  return { body: json };
+  return (await response.json()) as T;
 }
 
 // Memoized http client

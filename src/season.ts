@@ -14,11 +14,11 @@ import { api, Logger, queue } from "./utils";
  */
 const anime = async (year: number, season: Seasons) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/season/${year}/${season}`)
     );
 
-    return body as Season;
+    return result as Season;
   } catch (error) {
     Logger.error(error);
   }
@@ -29,9 +29,9 @@ const anime = async (year: number, season: Seasons) => {
  */
 const archive = async () => {
   try {
-    const { body } = await queue.add(async () => await api("/season/archive"));
+    const result = await queue.add(async () => await api("/season/archive"));
 
-    return body as SeasonArchive;
+    return result as SeasonArchive;
   } catch (error) {
     Logger.error(error);
   }
@@ -42,9 +42,9 @@ const archive = async () => {
  */
 const later = async () => {
   try {
-    const { body } = await queue.add(async () => await api("/season/later"));
+    const result = await queue.add(async () => await api("/season/later"));
 
-    return body as SeasonLater;
+    return result as SeasonLater;
   } catch (error) {
     Logger.error(error);
   }

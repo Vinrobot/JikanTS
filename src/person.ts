@@ -8,11 +8,11 @@ import { api, Logger, queue } from "./utils";
  */
 const pictures = async (id: number) => {
   try {
-    const { body } = await queue.add(
+    const result = await queue.add(
       async () => await api(`/person/${id}/pictures`)
     );
 
-    return body;
+    return result;
   } catch (error) {
     Logger.error(error);
   }

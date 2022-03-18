@@ -17,19 +17,16 @@ const items = async (
   subType?: SubTypes
 ) => {
   try {
+    let url = `/top/${type}/${page}`;
     if (subType) {
-      const result = await queue.add(
-        async () => await api(`/top/${type}/${page}/${subType}`)
-      );
-
-      return result.body as Result;
+      url += `/${subType}`;
     }
 
-    const { body } = await queue.add(
-      async () => await api(`/top/${type}/${page}`)
+    const result = await queue.add(
+      async () => await api(url)
     );
 
-    return body as Result;
+    return result as Result;
   } catch (error) {
     Logger.error(error);
   }
