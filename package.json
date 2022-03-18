@@ -10,18 +10,19 @@
   },
   "dependencies": {
     "cross-fetch": "^3.1.4",
-    "p-memoize": "^3.1.0",
-    "p-queue": "^6.1.1",
-    "prettier": "^1.18.2",
-    "quick-lru": "^4.0.1"
+    "p-memoize": "^6.0.1",
+    "p-queue": "^7.2.0",
+    "prettier": "^2.6.0",
+    "quick-lru": "^6.1.0",
+    "type-fest": "^2.12.0"
   },
   "description": "A wrapper for the jikan REST API.",
   "devDependencies": {
-    "husky": "^3.0.5",
-    "tslint": "^5.20.0",
+    "husky": "^7.0.4",
+    "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.6.3"
+    "typedoc": "^0.22.13",
+    "typescript": "^4.6.2"
   },
   "files": [
     "dist/**/*"
