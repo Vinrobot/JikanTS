@@ -1,32 +1,14 @@
-// Imports
-import Anime from "./anime";
-import Character from "./character";
-import Club from "./club";
-import Genre from "./genre";
-import Magazine from "./magazine";
-import Manga from "./manga";
-import Meta from "./meta";
-import Person from "./person";
-import Producer from "./producer";
-import Schedule from "./schedule";
-import Search from "./search";
-import Season from "./season";
-import Top from "./top";
-import User from "./user";
-
-export default {
-  Anime,
-  Character,
-  Club,
-  Genre,
-  Magazine,
-  Manga,
-  Meta,
-  Person,
-  Producer,
-  Schedule,
-  Search,
-  Season,
-  Top,
-  User
-};
+export * as Anime from "./anime";
+export * as Character from "./character";
+export * as Club from "./club";
+export * as Genre from "./genre";
+export * as Magazine from "./magazine";
+export * as Manga from "./manga";
+export * as Meta from "./meta";
+export * as Person from "./person";
+export * as Producer from "./producer";
+export * as Schedule from "./schedule";
+export * as Search from "./search";
+export * as Season from "./season";
+export * as Top from "./top";
+export * as User from "./user";

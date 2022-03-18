@@ -59,5 +59,5 @@ enum Type {
   Ona = "ONA",
   Ova = "OVA",
   Special = "Special",
-  Tv = "TV"
+  Tv = "TV",
 }

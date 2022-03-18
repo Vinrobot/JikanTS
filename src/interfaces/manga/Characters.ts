@@ -15,5 +15,5 @@ interface Character {
 
 export enum Role {
   Main = "Main",
-  Supporting = "Supporting"
+  Supporting = "Supporting",
 }

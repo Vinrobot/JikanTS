@@ -17,7 +17,7 @@ interface Character {
 
 enum Role {
   Main = "Main",
-  Supporting = "Supporting"
+  Supporting = "Supporting",
 }
 
 interface Staff {
@@ -37,5 +37,5 @@ enum Language {
   Italian = "Italian",
   Japanese = "Japanese",
   Korean = "Korean",
-  Spanish = "Spanish"
+  Spanish = "Spanish",
 }

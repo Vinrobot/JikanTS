@@ -10,9 +10,9 @@ import { api } from "./utils";
  * @param genreId - Genre ID from MyAnimeList
  * @param page - Number of the page
  */
-const anime = async (genreId: number, page: number = 1) => {
+export async function anime(genreId: number, page = 1) {
   return await api<Anime>(`/genre/anime/${genreId}/${page}`);
-};
+}
 
 /**
  * Fetches Manga items of the genre
@@ -20,11 +20,6 @@ const anime = async (genreId: number, page: number = 1) => {
  * @param genreId - Genre ID from MyAnimeList
  * @param page - Number of the page
  */
-const manga = async (genreId: number, page: number = 1) => {
+export async function manga(genreId: number, page = 1) {
   return await api<Manga>(`/genre/manga/${genreId}/${page}`);
-};
-
-export default {
-  anime,
-  manga
-};
+}

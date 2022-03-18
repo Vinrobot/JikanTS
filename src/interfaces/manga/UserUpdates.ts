@@ -22,5 +22,5 @@ enum Status {
   Completed = "Completed",
   OnHold = "On-Hold",
   PlanToRead = "Plan to Read",
-  Reading = "Reading"
+  Reading = "Reading",
 }

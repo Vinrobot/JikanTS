@@ -22,7 +22,7 @@ interface Top {
 enum Type {
   Doujinshi = "Doujinshi",
   Manga = "Manga",
-  Novel = "Novel"
+  Novel = "Novel",
 }
 
 export type SubTypes =

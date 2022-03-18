@@ -7,10 +7,6 @@ import { api } from "./utils";
 /**
  * Fetches anime schedule of the week or specified day
  */
-const anime = async (day: Days = "monday") => {
+export async function anime(day: Days = "monday") {
   return await api<Schedule>(`/schedule/${day}`);
-};
-
-export default {
-  anime
-};
+}

@@ -31,10 +31,10 @@ interface Meta {
 
 enum MetaType {
   Manga = "manga",
-  People = "people"
+  People = "people",
 }
 
 enum MangaType {
   Manga = "Manga",
-  OneShot = "One-shot"
+  OneShot = "One-shot",
 }

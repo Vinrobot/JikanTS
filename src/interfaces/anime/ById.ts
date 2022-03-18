@@ -64,7 +64,7 @@ interface Genre {
 
 enum Type {
   Anime = "anime",
-  Manga = "manga"
+  Manga = "manga",
 }
 
 interface Related {

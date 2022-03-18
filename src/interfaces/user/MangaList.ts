@@ -43,7 +43,7 @@ interface Manga {
 enum Priority {
   High = "High",
   Low = "Low",
-  Medium = "Medium"
+  Medium = "Medium",
 }
 
 enum Type {
@@ -51,5 +51,5 @@ enum Type {
   Manga = "Manga",
   Manhua = "Manhua",
   Manhwa = "Manhwa",
-  OneShot = "One-shot"
+  OneShot = "One-shot",
 }

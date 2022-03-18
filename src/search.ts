@@ -2,7 +2,7 @@
 import { Filters, Search, SearchTypes } from "./interfaces/search/Search";
 
 // Utils
-import { api, baseUrl } from "./utils";
+import { api, BASE_URL } from "./utils";
 
 /**
  * Search method
@@ -12,13 +12,13 @@ import { api, baseUrl } from "./utils";
  * @param page - The page number of the results
  * @param filters - The list of filters to add
  */
-const search = async (
+export async function search(
   query: string,
   type: SearchTypes,
-  page: number = 1,
+  page = 1,
   filters?: Filters
-) => {
-  const url = new URL(`/search/${type}?q=${query}&page=${page}`, baseUrl);
+) {
+  const url = new URL(`/search/${type}?q=${query}&page=${page}`, BASE_URL);
 
   if (filters) {
     if (filters.end_date) {
@@ -35,8 +35,4 @@ const search = async (
   }
 
   return await api<Search>(`${url.pathname}${url.search}`);
-};
-
-export default {
-  search
-};
+}

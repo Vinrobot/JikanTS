@@ -12,26 +12,20 @@ import { api } from "./utils";
  * @param year - The wanted year
  * @param season - The wanted season
  */
-const anime = async (year: number, season: Seasons) => {
+export async function anime(year: number, season: Seasons) {
   return await api<Season>(`/season/${year}/${season}`);
-};
+}
 
 /**
  * Feteches all the years & their respective seasons that can be parsed from MyAnimeList
  */
-const archive = async () => {
+export async function archive() {
   return await api<SeasonArchive>("/season/archive");
-};
+}
 
 /**
  * Fetches anime that have been announced for the upcoming seasons
  */
-const later = async () => {
+export async function later() {
   return await api<SeasonLater>("/season/later");
-};
-
-export default {
-  anime,
-  archive,
-  later
-};
+}

@@ -9,10 +9,6 @@ import { api } from "./utils";
  *
  * @param id - The magazine id
  */
-const get = async (id: number, page: number = 1) => {
+export async function get(id: number, page = 1) {
   return await api<Magazine>(`/magazine/${id}/${page}`);
-};
-
-export default {
-  get
-};
+}

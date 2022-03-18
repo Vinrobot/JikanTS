@@ -21,5 +21,5 @@ enum Status {
   Dropped = "Dropped",
   OnHold = "On-Hold",
   PlanToWatch = "Plan to Watch",
-  Watching = "Watching"
+  Watching = "Watching",
 }

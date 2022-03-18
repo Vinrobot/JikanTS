@@ -15,13 +15,13 @@ import { api } from "./utils";
  * @param type - The type to search for
  * @param page - The page number
  */
-const animeList = async (
+export async function animeList(
   username: string,
   type: AnimeListTypes = "all",
-  page: number = 1
-) => {
+  page = 1
+): Promise<AnimeList> {
   return await api<AnimeList>(`/user/${username}/animelist/${type}/${page}`);
-};
+}
 
 /**
  * Fetches the specified user friends
@@ -29,9 +29,9 @@ const animeList = async (
  * @param username - Username on MyAnimeList
  * @param page - The page number
  */
-const friends = async (username: string, page: number = 1) => {
+export async function friends(username: string, page = 1): Promise<Friends> {
   return await api<Friends>(`/user/${username}/friends/${page}`);
-};
+}
 
 /**
  * Fetches the specified user history
@@ -39,19 +39,19 @@ const friends = async (username: string, page: number = 1) => {
  * @param username - Username on MyAnimeList
  * @param type - Anime, Manga or Both
  */
-const history = async (username: string, type: Types = "both") => {
-  if (type === "anime") {
-    return await api<History>(`/user/${username}/history/anime`);
+export async function history(
+  username: string,
+  type: Types = "both"
+): Promise<History> {
+  switch (type) {
+    case "both":
+      return await api<History>(`/user/${username}/history`);
+    case "anime":
+      return await api<History>(`/user/${username}/history/anime`);
+    case "manga":
+      return await api<History>(`/user/${username}/history/manga`);
   }
-
-  if (type === "both") {
-    return await api<History>(`/user/${username}/history`);
-  }
-
-  if (type === "manga") {
-    return await api<History>(`/user/${username}/history/manga`);
-  }
-};
+}
 
 /**
  * Fetches the specified user mangalist
@@ -60,27 +60,19 @@ const history = async (username: string, type: Types = "both") => {
  * @param type - The type to search for
  * @param page - The page number
  */
-const mangaList = async (
+export async function mangaList(
   username: string,
   type: MangaListTypes = "all",
-  page: number = 1
-) => {
+  page = 1
+) {
   return await api<MangaList>(`/user/${username}/mangalist/${type}/${page}`);
-};
+}
 
 /**
  * Fetches the specified user profile
  *
  * @param username - Username on MyAnimeList
  */
-const profile = async (username: string) => {
+export async function profile(username: string) {
   return await api<Profile>(`/user/${username}`);
-};
-
-export default {
-  animeList,
-  friends,
-  history,
-  mangaList,
-  profile
-};
+}

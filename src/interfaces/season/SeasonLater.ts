@@ -35,7 +35,7 @@ interface Genre {
 }
 
 enum GenreType {
-  Anime = "anime"
+  Anime = "anime",
 }
 
 enum Source {
@@ -51,7 +51,7 @@ enum Source {
   PictureBook = "Picture book",
   The4KomaManga = "4-koma manga",
   VisualNovel = "Visual novel",
-  WebManga = "Web manga"
+  WebManga = "Web manga",
 }
 
 enum AnimeType {
@@ -60,5 +60,5 @@ enum AnimeType {
   Ona = "ONA",
   Ova = "OVA",
   Special = "Special",
-  Tv = "TV"
+  Tv = "TV",
 }

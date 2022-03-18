@@ -33,7 +33,7 @@ interface Meta {
 }
 
 enum MetaType {
-  Anime = "anime"
+  Anime = "anime",
 }
 
 enum Source {
@@ -44,7 +44,7 @@ enum Source {
   Novel = "Novel",
   Original = "Original",
   The4KomaManga = "4-koma manga",
-  WebManga = "Web manga"
+  WebManga = "Web manga",
 }
 
 enum AnimeType {
@@ -52,5 +52,5 @@ enum AnimeType {
   Ona = "ONA",
   Ova = "OVA",
   Special = "Special",
-  Tv = "TV"
+  Tv = "TV",
 }

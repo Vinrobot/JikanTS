@@ -14,7 +14,7 @@ export interface AnimeList {
   readonly request_hash: string;
 }
 
-interface Anime {
+export interface Anime {
   readonly added_to_list: boolean;
   readonly airing_status: number;
   readonly days: number | null;
@@ -54,21 +54,21 @@ interface Licensor {
 enum Priority {
   High = "High",
   Low = "Low",
-  Medium = "Medium"
+  Medium = "Medium",
 }
 
 enum Rating {
   G = "G",
   PG13 = "PG-13",
   R = "R",
-  RatingR = "R+"
+  RatingR = "R+",
 }
 
 enum SeasonName {
   Fall = "Fall",
   Spring = "Spring",
   Summer = "Summer",
-  Winter = "Winter"
+  Winter = "Winter",
 }
 
 enum Type {
@@ -76,5 +76,5 @@ enum Type {
   Ona = "ONA",
   Ova = "OVA",
   Special = "Special",
-  Tv = "TV"
+  Tv = "TV",
 }

@@ -6,10 +6,6 @@ import { api } from "./utils";
  *
  * @param id - The person id
  */
-const pictures = async (id: number) => {
-  return await api<unknown>(`/person/${id}/pictures`);
-};
-
-export default {
-  pictures
-};
+export async function pictures(id: number) {
+  return await api(`/person/${id}/pictures`);
+}

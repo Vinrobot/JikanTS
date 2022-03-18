@@ -14,5 +14,5 @@ enum Season {
   Fall = "Fall",
   Spring = "Spring",
   Summer = "Summer",
-  Winter = "Winter"
+  Winter = "Winter",
 }

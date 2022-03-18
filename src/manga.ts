@@ -13,54 +13,54 @@ import { api } from "./utils";
  *
  * @param id - The manga id
  */
-const characters = async (id: number) => {
+export async function characters(id: number) {
   return await api<Characters>(`/manga/${id}/characters`);
-};
+}
 
 /**
  * Fetches forum topics related to the item
  *
  * @param id - The manga id
  */
-const forum = async (id: number) => {
-  return await api<unknown>(`/manga/${id}/forum`);
-};
+export async function forum(id: number) {
+  return await api(`/manga/${id}/forum`);
+}
 
 /**
  * Fetches more info related to the item
  *
  * @param id - The manga id
  */
-const moreInfo = async (id: number) => {
-  return await api<unknown>(`/manga/${id}/moreinfo`);
-};
+export async function moreInfo(id: number) {
+  return await api(`/manga/${id}/moreinfo`);
+}
 
 /**
  * Fetches news related to the item
  *
  * @param id - The manga id
  */
-const news = async (id: number) => {
+export async function news(id: number) {
   return await api<News>(`/manga/${id}/news`);
-};
+}
 
 /**
  * Fetches pictures related to the item
  *
  * @param id - The manga id
  */
-const pictures = async (id: number) => {
-  return await api<unknown>(`/manga/${id}/pictures`);
-};
+export async function pictures(id: number) {
+  return await api(`/manga/${id}/pictures`);
+}
 
 /**
  * Fetches recommendations and their weightage made by users
  *
  * @param id - The manga id
  */
-const recommendations = async (id: number) => {
-  return await api<unknown>(`/manga/${id}/recommendations`);
-};
+export async function recommendations(id: number) {
+  return await api(`/manga/${id}/recommendations`);
+}
 
 /**
  * Fetches reviews written by users
@@ -68,18 +68,18 @@ const recommendations = async (id: number) => {
  * @param id - The manga id
  * @param page - The page number
  */
-const reviews = async (id: number, page: number = 1) => {
+export async function reviews(id: number, page = 1) {
   return await api<Reviews>(`/manga/${id}/reviews/${page}`);
-};
+}
 
 /**
  * Fetches statistical information related to the item
  *
  * @param id - The manga id
  */
-const stats = async (id: number) => {
+export async function stats(id: number) {
   return await api<Stats>(`/manga/${id}/stats`);
-};
+}
 
 /**
  * Fetches latest list updates made by users
@@ -87,18 +87,6 @@ const stats = async (id: number) => {
  * @param id - The manga id
  * @param page - The page number
  */
-const userUpdates = async (id: number, page: number = 1) => {
+export async function userUpdates(id: number, page = 1) {
   return await api<UserUpdates>(`/manga/${id}/userupdates/${page}`);
-};
-
-export default {
-  characters,
-  forum,
-  moreInfo,
-  news,
-  pictures,
-  recommendations,
-  reviews,
-  stats,
-  userUpdates
-};
+}

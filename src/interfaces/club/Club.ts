@@ -41,5 +41,5 @@ enum Type {
   Anime = "anime",
   Character = "character",
   Manga = "manga",
-  Profile = "profile"
+  Profile = "profile",
 }

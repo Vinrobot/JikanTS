@@ -43,9 +43,9 @@ interface Genre {
 }
 
 enum GenreType {
-  Anime = "anime"
+  Anime = "anime",
 }
 
 enum MondayType {
-  Tv = "TV"
+  Tv = "TV",
 }

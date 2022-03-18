@@ -19,18 +19,18 @@ import { api } from "./utils";
  *
  * @param id - The anime id
  */
-const byId = async (id: number) => {
+export async function byId(id: number) {
   return await api<AnimeById>(`/anime/${id}`);
-};
+}
 
 /**
  * Fetches the list of characters & staff members of the anime
  *
  * @param id - The anime id
  */
-const charactersStaff = async (id: number) => {
+export async function charactersStaff(id: number) {
   return await api<CharactersStaff>(`/anime/${id}/characters_staff`);
-};
+}
 
 /**
  * Fetches the list of episodes of the anime
@@ -38,54 +38,54 @@ const charactersStaff = async (id: number) => {
  * @param id - The anime id
  * @param page - The page number
  */
-const episodes = async (id: number, page: number = 1) => {
+export async function episodes(id: number, page = 1) {
   return await api<Episodes>(`/anime/${id}/episodes/${page}`);
-};
+}
 
 /**
  * Fetches forum topics related to the item
  *
  * @param id - The anime id
  */
-const forum = async (id: number) => {
+export async function forum(id: number) {
   return await api<Forum>(`/anime/${id}/forum`);
-};
+}
 
 /**
  * Fetches more info related to the item
  *
  * @param id - The anime id
  */
-const moreInfo = async (id: number) => {
+export async function moreInfo(id: number) {
   return await api<MoreInfo>(`/anime/${id}/moreinfo`);
-};
+}
 
 /**
  * Fetches news related to the item
  *
  * @param id - The anime id
  */
-const news = async (id: number) => {
+export async function news(id: number) {
   return await api<News>(`/anime/${id}/news`);
-};
+}
 
 /**
  * Fetches pictures related to the item
  *
  * @param id - The anime id
  */
-const pictures = async (id: number) => {
-  return await api<unknown>(`/anime/${id}/pictures`);
-};
+export async function pictures(id: number) {
+  return await api(`/anime/${id}/pictures`);
+}
 
 /**
  * Fetches recommendations and their weightage made by users
  *
  * @param id - The anime id
  */
-const recommendations = async (id: number) => {
+export async function recommendations(id: number) {
   return await api<Recommendations>(`/anime/${id}/recommendations`);
-};
+}
 
 /**
  * Fetches reviews written by users
@@ -93,18 +93,18 @@ const recommendations = async (id: number) => {
  * @param id - The anime id
  * @param page - The page number
  */
-const reviews = async (id: number, page: number = 1) => {
+export async function reviews(id: number, page = 1) {
   return await api<Reviews>(`/anime/${id}/reviews/${page}`);
-};
+}
 
 /**
  * Fetches statistical information related to the item
  *
  * @param id - The anime id
  */
-const stats = async (id: number) => {
+export async function stats(id: number) {
   return await api<Stats>(`/anime/${id}/stats`);
-};
+}
 
 /**
  * Fetches latest list updates made by users
@@ -112,30 +112,15 @@ const stats = async (id: number) => {
  * @param id - The anime id
  * @param page - The page number
  */
-const userUpdates = async (id: number, page: number = 1) => {
+export async function userUpdates(id: number, page = 1) {
   return await api<UserUpdates>(`/anime/${id}/userupdates/${page}`);
-};
+}
 
 /**
  * Fetches PV & episodes (if any) related to the item
  *
  * @param id - The anime id
  */
-const videos = async (id: number) => {
+export async function videos(id: number) {
   return await api<Videos>(`/anime/${id}/videos`);
-};
-
-export default {
-  byId,
-  charactersStaff,
-  episodes,
-  forum,
-  moreInfo,
-  news,
-  pictures,
-  recommendations,
-  reviews,
-  stats,
-  userUpdates,
-  videos
-};
+}

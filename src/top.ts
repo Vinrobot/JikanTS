@@ -11,19 +11,14 @@ import { api } from "./utils";
  * @param page - The Top page on MyAnimeList is paginated offers 50 items per page
  * @param subType - Top items of this subtype
  */
-const items = async (
+export async function items(
   type: Types = "anime",
-  page: number = 1,
+  page = 1,
   subType?: SubTypes
-) => {
+) {
   let url = `/top/${type}/${page}`;
   if (subType) {
     url += `/${subType}`;
   }
-
   return await api<Result>(url);
-};
-
-export default {
-  items
-};
+}

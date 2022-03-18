@@ -4,15 +4,10 @@ import { Info, Members } from "./interfaces/club/Club";
 // Utils
 import { api } from "./utils";
 
-const info = async (id: number) => {
+export async function info(id: number) {
   return await api<Info>(`/club/${id}`);
-};
+}
 
-const members = async (id: number, page: number = 1) => {
+export async function members(id: number, page = 1) {
   return await api<Members>(`/club/${id}/members/${page}`);
-};
-
-export default {
-  info,
-  members
-};
+}

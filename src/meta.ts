@@ -11,22 +11,17 @@ import { api } from "./utils";
  * @param period - The period you're searching for
  * @param offset - 1,000 requests are shown per page, you can use the offset to show more
  */
-const requests = async (
+export async function requests(
   type: Types = "anime",
   period: Periods = "monthly",
-  offset: number = 1000
-) => {
-  return await api<unknown>(`/meta/requests/${type}/${period}/${offset}`);
-};
+  offset = 1000
+) {
+  return await api(`/meta/requests/${type}/${period}/${offset}`);
+}
 
 /**
  * Fetches the status of the Jikan REST API
  */
-const status = async () => {
+export async function status() {
   return await api<Status>("/meta/status");
-};
-
-export default {
-  requests,
-  status
-};
+}

@@ -1,36 +1,29 @@
-// Imports
-import fetch from "cross-fetch";
 import PMemoize from "p-memoize";
 import PQueue from "p-queue";
 import LRU from "quick-lru";
 
-// package.json
-import pkg from "../package.json";
+export const BASE_URL = "https://api.jikan.moe/v3";
 
-// Constants
-export const baseUrl = "https://api.jikan.moe/v3";
-export const queue = new PQueue({ concurrency: 2 });
+const QUEUE: PQueue = new PQueue({ concurrency: 2 });
 
-async function fetchJson<T = any>(url: string): Promise<T> {
-  const request: RequestInit = {
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(BASE_URL + url, {
     headers: {
       "Content-Type": "application/json",
-      "User-Agent": `${pkg.name} / ${pkg.version} (${pkg.repository.url})`
+      "User-Agent": "JikanClient@1.0.0",
     },
     method: "GET",
-    mode: "cors"
-  };
-  const response = await fetch(baseUrl + url, request);
+    mode: "cors",
+  });
   return (await response.json()) as T;
 }
 
-// Memoized http client
 const cachedFetchJson = PMemoize(fetchJson, {
   cache: new LRU({
-    maxSize: 1000
-  })
+    maxSize: 1000,
+  }),
 });
 
 export async function api<T>(url: string): Promise<T> {
-  return await queue.add(async () => await cachedFetchJson<T>(url));
+  return await QUEUE.add(async () => await cachedFetchJson<T>(url));
 }
